@@ -40,9 +40,21 @@
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }
 }
+@media (max-width: 1024px) {
+    .skills-grid {
+        gap: 1.5rem 2rem; 
+    }
+}
 @media (max-width: 768px) {
+    .skills-section {
+        padding: 3rem 0;
+    }
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
     .skills-grid {
         grid-template-columns: 1fr; 
-        gap: 1.5rem;
+        gap: 1.25rem;
     }
 }
