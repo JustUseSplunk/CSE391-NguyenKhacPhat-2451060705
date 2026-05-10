@@ -43,6 +43,10 @@
     aspect-ratio: 4/3;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
+}
+.portfolio-item:hover img {
+    transform: scale(1.1); 
 }
 .portfolio-overlay {
     position: absolute;
@@ -54,4 +58,8 @@
     padding: 1.5rem;
     opacity: 0;
     color: white;
+    transition: opacity 0.3s ease;
+}
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
 }
