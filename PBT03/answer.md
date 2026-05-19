@@ -115,3 +115,52 @@ Tổng chiều rộng thực tế của hai khối là: 342px + 722px = 1064px. 
 
 **4. "Mô tả sản phẩm B" (p.highlight)**
 - `color` = **green** (Trúng luật `.highlight` chứa `!important` nên đè luôn `inherit` của `.card p`).
+# PHẦN B — THỰC HÀNH CODE (Ghi chú và Giải thích)
+
+## Bài B1 — Style trang Profile
+**5 loại selector khác nhau đã sử dụng trong file `style.css`:**
+1. **Element Selector:** `body`, `table`, `th` (Chọn trực tiếp tên thẻ).
+2. **Class Selector:** `.container`, `.active` (Chọn các phần tử có class tương ứng).
+3. **ID Selector:** `#main-header` (Chọn phần tử duy nhất có id là main-header).
+4. **Descendant Selector:** `nav a` (Chọn tất cả thẻ `a` nằm bên trong thẻ `nav`).
+5. **Pseudo-class Selector:** `a:hover`, `tr:nth-child(even)` (Chọn trạng thái hover hoặc phần tử chẵn/lẻ).
+
+---
+
+## Bài B2 — Box Model Lab
+
+**Phần 1 — Chứng minh content-box vs border-box:**
+- Hộp 1 (content-box): chiều rộng thực tế = **350px** (đo từ DevTools: 300px width + 40px padding + 10px border).
+- Hộp 2 (border-box): chiều rộng thực tế = **300px** (đo từ DevTools: kích thước 300px đã bao gồm cả padding và border).
+- **Giải thích sự khác biệt:** `content-box` cộng dồn padding và border ra bên ngoài kích thước width đã khai báo. `border-box` ép padding và border vào bên trong, tự động thu nhỏ vùng content lại để giữ đúng kích thước tổng bằng thẻ width khai báo.
+
+**Phần 2 — Layout 3 cột:**
+Nếu KHÔNG dùng `border-box`, tổng chiều rộng thực tế của 3 cột là:
+- Cột trái: 250 + (15 * 2) = 280px
+- Cột giữa: 500 + (20 * 2) = 540px
+- Cột phải: 250 + (15 * 2) = 280px
+- **Tổng = 1100px**. Lớn hơn container (1000px) nên cột số 3 (Ads) bị đẩy rớt xuống dòng.
+
+---
+
+## Bài B3 — Specificity Battle
+
+**1. Liệt kê 10 rules + specificity score (từ thấp đến cao)**
+1. `p` (0,0,1)
+2. `.text` (0,1,0)
+3. `.highlight` (0,1,0)
+4. `p.text` (0,1,1)
+5. `.text.highlight` (0,2,0)
+6. `p.text.highlight` (0,2,1)
+7. `#demo` (1,0,0)
+8. `p#demo` (1,0,1)
+9. `#demo.text` (1,1,0)
+10. `#demo.text.highlight` (1,2,0)
+
+**2. Element cuối cùng hiển thị màu gì? Tại sao?**
+Element hiển thị màu **xanh lá (green)**.
+Tại sao: Vì rule số 10 (`#demo.text.highlight`) kết hợp 1 ID và 2 Class, cho ra điểm specificity cao nhất là (1,2,0), đánh bại tất cả các rules phía trên nó.
+
+**4. Thay đổi thứ tự rules trong CSS file. Kết quả có đổi không? Giải thích.**
+- **Nếu đổi chỗ rule 1 đến rule 10 lộn xộn:** Kết quả **KHÔNG ĐỔI**. Màu vẫn là xanh lá. Vì quy tắc tính điểm (Specificity) luôn được ưu tiên xử lý trước, không phụ thuộc vào vị trí dòng code.
+- **Trường hợp ngoại lệ (Rule 2 và Rule 3):** Vì `.text` và `.highlight` có cùng số điểm (0,1,0). Nếu đổi chỗ hai rule này cho nhau, màu của phần tử (nếu loại bỏ các rule mạnh hơn) sẽ phụ thuộc vào rule nào được viết sau cùng (Cascade rule).

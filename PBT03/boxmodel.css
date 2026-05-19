@@ -1,0 +1,48 @@
+.box-compare {
+    margin-bottom: 50px;
+}
+
+.box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    background-color: #ffeb3b;
+}
+
+.content-box {
+    box-sizing: content-box; 
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+.layout-container {
+    width: 1000px;
+    background-color: #eee;
+    border: 2px dashed red;
+    overflow: hidden; 
+}
+.col {
+    float: left;
+}
+
+.left {
+    width: 250px;
+    padding: 15px;
+    background-color: #bbdefb;
+}
+
+.middle {
+    width: 500px;
+    padding: 20px;
+    background-color: #c8e6c9;
+}
+
+.right {
+    width: 250px;
+    padding: 15px;
+    background-color: #ffc107;
+}
