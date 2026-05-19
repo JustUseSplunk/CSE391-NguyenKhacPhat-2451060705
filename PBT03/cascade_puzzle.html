@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade Puzzle</title>
+    <style>
+        body { font-size: 16px; color: #333; }
+        .container { font-size: 14px; border: 1px solid #ddd; padding: 20px; }
+        .card { color: blue; border-bottom: 2px solid #ccc; margin-bottom: 20px;}
+        .card .title { font-size: 20px; }
+        .card p { color: inherit; }
+        #featured .title { color: red; }
+        .highlight { color: green !important; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="featured">
+            <h2 class="title highlight">Sản phẩm A</h2>
+            <p>Mô tả sản phẩm</p>
+        </div>
+        <div class="card">
+            <h2 class="title">Sản phẩm B</h2>
+            <p class="highlight">Mô tả sản phẩm B</p>
+        </div>
+    </div>
+</body>
+</html>
