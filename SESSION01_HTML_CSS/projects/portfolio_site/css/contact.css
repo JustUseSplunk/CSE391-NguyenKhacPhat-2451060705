@@ -1,0 +1,98 @@
+.contact-section {
+    padding: 5rem 0;
+    background-color: var(--color-light, #f8fafc); 
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; 
+    gap: 4rem;
+}
+.contact-info h3 {
+    font-size: 1.5rem;
+    color: var(--color-dark, #1e293b);
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    margin-bottom: 2rem;
+    color: var(--color-text, #475569);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-text, #334155);
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-dark, #1e293b);
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary, #6366f1);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+.submit-btn {
+    background-color: var(--color-primary, #6366f1);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: var(--color-secondary, #8b5cf6);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 3rem 0; 
+    }
+    
+    .contact-wrapper {
+        grid-template-columns: 1fr; 
+        gap: 2.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+        min-height: 44px; 
+        font-size: 16px; 
+        padding: 0.75rem 1rem;
+    }
+}

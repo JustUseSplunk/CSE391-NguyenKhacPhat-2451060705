@@ -1,0 +1,51 @@
+.hero {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background:  #6c14d1;
+}
+.hero h1 {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero h1 span {
+    color: rgb(236, 203, 11);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: white;
+    margin-bottom: 2.5rem;
+}
+.cta-button {
+    display: inline-block;
+    background-color: white;
+    color: #6c14d1;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(99, 102, 241, 0.2);
+}
+.cta-button:hover {
+    transform: translateY(-5px) scale(1.05); 
+    background-color: var(--color-secondary); 
+    box-shadow: 0 10px 15px rgba(99, 102, 241, 0.3);
+    color: white;
+}
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;/
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+}
