@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán & Đặt Hàng - B3</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2 {
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f8fafc;
+            font-weight: bold;
+        }
+        tfoot {
+            font-weight: bold;
+            background-color: #f8fafc;
+        }
+        .text-right {
+            text-align: right;
+            padding-right: 20px;
+        }
+        fieldset {
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #fafafa;
+        }
+        legend {
+            font-weight: bold;
+            color: #2563eb;
+            background: white;
+            padding: 0 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        input[type="text"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .radio-group label {
+            display: inline;
+            font-weight: normal;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        .bonus-section {
+            background-color: #eff6ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px dashed #2563eb;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #10b981;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #059669;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="#" method="POST">
+        <h1>Xác Nhận Đặt Hàng</h1>
+        <div class="bonus-section form-group">
+            <label for="search-product">Tìm kiếm thêm sản phẩm vào giỏ</label>
+            <input list="products-list" id="search-product" name="search-product" placeholder="Gõ để tìm kiếm (VD: Bàn phím...)">
+            <datalist id="products-list">
+                <option value="Chuột Gaming Razer">
+                <option value="Bàn phím cơ Akko">
+                <option value="Tai nghe Logitech">
+                <option value="Lót chuột RGB">
+            </datalist>
+        </div>
+        <h2>1. Giỏ hàng của bạn</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Chuột Pro Wireless</td>
+                    <td>1.500.000đ</td>
+                    <td>1</td>
+                    <td>1.500.000đ</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bàn phím cơ RGB TKL</td>
+                    <td>2.200.000đ</td>
+                    <td>1</td>
+                    <td>2.200.000đ</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Tai nghe Surround 7.1</td>
+                    <td>1.800.000đ</td>
+                    <td>2</td>
+                    <td>3.600.000đ</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-right">Tổng cộng:</td>
+                    <td>
+                        <output name="totalPrice">7.300.000đ</output>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="bonus-section form-group">
+            <label>💎 Điểm thành viên tích lũy: Thẻ Vàng</label>
+            <meter value="80" min="0" max="100" low="30" high="70" optimum="90" style="width: 100%; height: 20px;"></meter>
+            <small>Bạn đã đạt 80/100 điểm để lên thẻ Kim Cương!</small>
+        </div>
+        <fieldset>
+            <legend>2. Phương thức thanh toán</legend>
+            
+            <div class="form-group radio-group">
+                <input type="radio" id="cod" name="payment" value="cod" checked required>
+                <label for="cod">Thanh toán khi nhận hàng (COD)</label>
+
+                <input type="radio" id="transfer" name="payment" value="transfer">
+                <label for="transfer">Chuyển khoản ngân hàng</label>
+
+                <input type="radio" id="ewallet" name="payment" value="ewallet">
+                <label for="ewallet">Ví điện tử (Momo, ZaloPay)</label>
+            </div>
+
+            <div class="form-group">
+                <label for="discount">Mã giảm giá (Nếu có):</label>
+                <input type="text" id="discount" name="discount" 
+                       pattern="^SALE\d{4}$" 
+                       title="Mã giảm giá phải có định dạng 'SALE' + 4 chữ số (VD: SALE2026)"
+                       placeholder="Nhập SALE2026">
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Ghi chú đơn hàng (Optional):</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Ví dụ: Giao giờ hành chính, bọc kỹ hàng..."></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>3. Thời gian nhận hàng</legend>
+
+            <div class="form-group">
+                <label for="delivery-date">Ngày giao hàng mong muốn:</label>
+                <input type="date" id="delivery-date" name="delivery-date" min="2026-05-01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="delivery-time">Khung giờ giao hàng:</label>
+                <select id="delivery-time" name="delivery-time" required>
+                    <option value="">-- Chọn khung giờ --</option>
+                    <option value="morning">Sáng 8h - 12h</option>
+                    <option value="afternoon">Chiều 14h - 18h</option>
+                    <option value="evening">Tối 18h - 21h</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="range" id="delivery-speed" name="delivery-speed" min="1" max="7" step="1" value="3">
+            </div>
+        </fieldset>
+
+        <button type="submit" aria-label="Xác nhận đặt hàng">TIẾN HÀNH ĐẶT HÀNG</button>
+
+    </form>
+
+</body>
+</html>

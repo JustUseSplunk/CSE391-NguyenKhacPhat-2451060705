@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm Multimedia - B2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f8fafc;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-gallery {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        figure {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin: 0;
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+        figure img {
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        figcaption {
+            font-weight: bold;
+            color: #2563eb;
+            font-size: 1.1em;
+        }
+        .media-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .media-section h2 {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .video-box {
+            flex: 1;
+            min-width: 300px;
+        }
+        iframe, video {
+            width: 100%;
+            border-radius: 8px;
+            aspect-ratio: 16/9;
+        }
+        .audio-wrapper {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #e0e7ff;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" stroke="#2563eb" stroke-width="5" fill="#eff6ff" />
+            <path d="M 30 50 L 45 65 L 70 35" stroke="#2563eb" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h1>Giới Thiệu Thiết Bị Gaming Cao Cấp</h1>
+        <p>Trang bị hoàn hảo cho những trận rank nghẹt thở</p>
+    </header>
+
+    <div class="audio-wrapper">
+        <h3>🎧 Nhạc nền Epic (Bật để tăng mood)</h3>
+        <audio controls>
+            <source src="amthanh.mp3" type="audio/mpeg">
+            Trình duyệt của bạn không hỗ trợ thẻ audio.
+        </audio>
+    </div>
+    <section class="product-gallery">
+        <figure>
+            <img src="https://cdn.shopify.com/s/files/1/0591/7006/2395/files/design-large_2048x2048.jpg?v=1690795744" 
+                 alt="Chuột Gaming không dây siêu nhẹ màu đen" 
+                 loading="lazy" 
+                 style="max-width: 100%; height: auto;">
+            <figcaption>Chuột Pro Wireless - 1.500.000đ</figcaption>
+            <p>Cảm biến quang học 25K DPI, cực nhạy.</p>
+        </figure>
+
+        <figure>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfh2xXZRXGFzsiIRpxJmZUujn2OSnnislEIg&s" 
+                 alt="Bàn phím cơ RGB switch đỏ" 
+                 loading="lazy" 
+                 style="max-width: 100%; height: auto;">
+            <figcaption>Bàn phím cơ RGB TKL - 2.200.000đ</figcaption>
+            <p>Gõ êm ái, phù hợp spam skill liên tục.</p>
+        </figure>
+
+        <figure>
+            <img src="https://earfunvietnam.com/wp-content/uploads/2025/03/tai-nghe-chup-tai-earfun-wave-life-hp201-trang.jpg" 
+                 alt="Tai nghe over-ear có micro chụp tai màu trắng" 
+                 loading="lazy" 
+                 style="max-width: 100%; height: auto;">
+            <figcaption>Tai nghe Surround 7.1 - 1.800.000đ</figcaption>
+            <p>Giả lập âm thanh vòm, nghe rõ tiếng bước chân.</p>
+        </figure>
+    </section>
+
+    <section class="media-section">
+        <h2>🎬 Video Review & Trailer</h2>
+        <div class="video-container">
+
+            <div class="video-box">
+                <h3>Review từ Youtuber</h3>
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="video-box">
+                <h3>Trailer Sản Phẩm </h3>
+                <video controls poster="https://via.placeholder.com/640x360?text=Click+to+Play+Trailer" preload="none">
+                    <source src="trailer.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
+                </video>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
