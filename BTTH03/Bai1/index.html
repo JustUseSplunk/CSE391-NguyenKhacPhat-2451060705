@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sinh viên</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hệ thống quản lý sinh viên</h1> 
+
+        <div id="toastNotification" class="toast hidden"></div> 
+
+        <div class="statistics-card"> 
+            <div class="stat-item">
+                <span class="stat-label">Tổng số sinh viên:</span>
+                <span id="totalStudents" class="stat-value">0</span> 
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Điểm trung bình lớp:</span>
+                <span id="avgClassGrade" class="stat-value">0.0</span> 
+            </div>
+        </div>
+
+        <div class="action-bar"> 
+            <button id="btnOpenForm" class="btn btn-primary">Thêm sinh viên mới</button> 
+        </div>
+
+        <div class="table-container">
+            <table> 
+                <thead>
+                    <tr>
+                        <th>Mã SV</th> 
+                        <th>Họ và tên</th> 
+                        <th>Ngày sinh</th> 
+                        <th>Lớp học</th> 
+                        <th>Điểm trung bình</th> 
+                        <th>Email</th> 
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody"> 
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="formModal" class="modal-overlay hidden"> 
+        <div class="modal-box">
+            <h2 id="modalTitle">Thêm sinh viên</h2>
+            <form id="studentForm"> 
+                <input type="hidden" id="editIndex" value="">
+
+                <div class="form-group">
+                    <label for="studentId">Mã sinh viên</label>
+                    <input type="text" id="studentId" required placeholder="VD: B26DCCN001"> 
+                </div>
+
+                <div class="form-group">
+                    <label for="fullName">Họ và tên</label>
+                    <input type="text" id="fullName" required placeholder="VD: Nguyễn Văn A"> 
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Ngày sinh</label>
+                    <input type="date" id="dob" required> 
+                </div>
+
+                <div class="form-group">
+                    <label for="className">Lớp học</label>
+                    <input type="text" id="className" required placeholder="VD: K66-CSE"> 
+                </div>
+
+                <div class="form-group">
+                    <label for="avgGrade">Điểm trung bình</label>
+                    <input type="number" id="avgGrade" step="0.01" min="0" max="10" required placeholder="Từ 0.0 đến 10.0"> 
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="VD: sv@university.edu.vn"> 
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="btnCancelForm" class="btn btn-secondary">Hủy bỏ</button> 
+                    <button type="submit" id="btnSubmitForm" class="btn btn-success">Lưu lại</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
