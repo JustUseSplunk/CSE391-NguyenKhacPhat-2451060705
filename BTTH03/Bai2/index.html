@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý công việc cá nhân</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Quản lý công việc cá nhân</h1>
+
+        <div id="toastNotification" class="toast hidden"></div>
+
+        <div class="statistics-board">
+            <div class="stat-box">
+                <span>Tổng cộng</span>
+                <h2 id="totalTasks">0</h2>
+            </div>
+            <div class="stat-box stat-success">
+                <span>Đã hoàn thành</span>
+                <h2 id="completedTasks">0</h2>
+            </div>
+            <div class="stat-box stat-warning">
+                <span>Chưa hoàn thành</span>
+                <h2 id="pendingTasks">0</h2>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <button id="btnOpenForm" class="btn btn-primary">Thêm công việc</button>
+        </div>
+
+        <div id="taskList" class="task-list">
+            </div>
+    </div>
+
+    <div id="taskModal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <h2 id="modalTitle">Thêm công việc mới</h2>
+            <form id="taskForm">
+                <input type="hidden" id="editIndex" value="">
+
+                <div class="form-group">
+                    <label for="taskTitle">Tiêu đề công việc</label>
+                    <input type="text" id="taskTitle" required placeholder="VD: Làm bài tập Web">
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDesc">Mô tả ngắn</label>
+                    <textarea id="taskDesc" rows="3" placeholder="VD: Hoàn thành bài HTML, CSS, JS"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDueDate">Hạn hoàn thành</label>
+                    <input type="date" id="taskDueDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskPriority">Mức ưu tiên</label>
+                    <select id="taskPriority">
+                        <option value="Thấp">Thấp</option>
+                        <option value="Trung bình" selected>Trung bình</option>
+                        <option value="Cao">Cao</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="btnCancelForm" class="btn btn-secondary">Hủy bỏ</button>
+                    <button type="submit" id="btnSubmitForm" class="btn btn-success">Lưu lại</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
