@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2 - CSS Animations & Transitions</title>
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+
+    <h1 style="text-align: center; margin-top: 20px;">Demo CSS Animations</h1>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <p>Đang tải dữ liệu...</p>
+        <div class="spinner"></div>
+    </div>
+
+    <div class="card-container">
+        
+        <div class="card fade-in">
+            <div class="img-wrapper">
+                <img src="https://via.placeholder.com/300x200" alt="Product">
+            </div>
+            <div class="card-content">
+                <h3>Sản phẩm Hoạt họa</h3>
+                <p>Hover vào card để xem các hiệu ứng trượt, bóng đổ và zoom ảnh.</p>
+                <button class="btn-buy">Mua ngay</button>
+            </div>
+        </div>
+
+        <div class="card fade-in" style="animation-delay: 0.2s;">
+            <div class="img-wrapper">
+                <img src="https://via.placeholder.com/300x200" alt="Product">
+            </div>
+            <div class="card-content">
+                <h3>Sản phẩm Độ trễ</h3>
+                <p>Card này xuất hiện chậm hơn một chút nhờ animation-delay.</p>
+                <button class="btn-buy">Mua ngay</button>
+            </div>
+        </div>
+
+        <div class="card fade-in" style="animation-delay: 0.4s;">
+            <div class="img-wrapper">
+                <img src="https://via.placeholder.com/300x200" alt="Product">
+            </div>
+            <div class="card-content">
+                <h3>Sản phẩm Cuối</h3>
+                <p>Cùng một keyframes nhưng tạo ra cảm giác loading mượt mà.</p>
+                <button class="btn-buy">Mua ngay</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

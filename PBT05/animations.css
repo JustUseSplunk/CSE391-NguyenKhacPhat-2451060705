@@ -1,0 +1,102 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+body { background-color: #f0f2f5; padding: 20px; }
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    width: 300px;
+    border-radius: 10px;
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+}
+
+.card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2); 
+}
+
+
+
+.img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden; 
+    border-radius: 10px 10px 0 0;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; 
+}
+
+.card:hover .img-wrapper img {
+    transform: scale(1.1); 
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+.card-content h3 { margin-bottom: 10px; color: #333; }
+.card-content p { color: #666; margin-bottom: 20px; line-height: 1.5; font-size: 14px; }
+
+.btn-buy {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db; 
+    color: white;             
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+}
+
+.btn-buy:hover {
+    background-color: #e74c3c; 
+    color: #fff;
+    transform: scale(1.05);    
+}
+
+@keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    border: 4px solid #ddd; /* Viền mờ xung quanh */
+    border-top: 4px solid #2ecc71; /* Viền màu xanh tạo hiệu ứng xoay */
+    border-radius: 50%; /* Bo tròn thành hình tròn hoàn hảo */
+    animation: spin 1s linear infinite; /* Xoay đều vô tận trong 1 giây/vòng */
+}
+
+
+/* ==================================================
+   HIỆU ỨNG 5: Fade-in khi tải trang/scroll (Keyframes)
+   ================================================== */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);  
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0; 
+}
