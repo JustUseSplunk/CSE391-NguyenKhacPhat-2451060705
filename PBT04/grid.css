@@ -1,0 +1,96 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+
+body { background-color: #f8f9fa; padding: 20px; }
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px; 
+    gap: 20px;
+    grid-template-areas: 
+        "header header header"
+        "hero hero hero"
+        "sidebar main ads"
+        "footer footer footer";
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header  { grid-area: header; }
+.hero    { grid-area: hero; }
+.sidebar { grid-area: sidebar; }
+.main-content { grid-area: main; }
+.ads     { grid-area: ads; }
+.footer  { grid-area: footer; }
+.header, .footer {
+    background-color: #34495e;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+.header { display: flex; justify-content: space-between; align-items: center; }
+.hero {
+    background-color: #3498db;
+    color: white;
+    border-radius: 8px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.hero-featured-card {
+    grid-column: span 2; 
+    background-color: #f1c40f;
+    color: #333;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.sidebar, .ads {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.filter-group { margin-top: 15px; line-height: 1.8; }
+.ad-banner {
+    background-color: #e74c3c;
+    color: white;
+    height: 200px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+}
+.main-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.main-content h2 { margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 15px;
+}
+.card {
+    background-color: #ecf0f1;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #7f8c8d;
+    border: 1px dashed #bdc3c7;
+}
