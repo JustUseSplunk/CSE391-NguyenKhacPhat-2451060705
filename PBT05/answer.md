@@ -193,3 +193,7 @@ $primary-color: #e74c3c;
     }
 }
 ```
+### Bài B3 (20đ) — SCSS Refactor
+
+Lệnh biên dịch SCSS sang CSS mình sử dụng là:
+`sass --watch scss/style.scss style.css`
