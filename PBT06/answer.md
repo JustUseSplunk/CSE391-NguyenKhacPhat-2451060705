@@ -36,3 +36,47 @@ Bootstrap quy ước: `m` = margin, `p` = padding. Các hướng: `t` (top), `b`
 * **`.container`**: Là container cố định chiều rộng theo từng điểm dừng (responsive fixed-width). Mỗi khi kéo qua một breakpoint (sm, md, lg...), chiều rộng tối đa (max-width) của nó sẽ giật và thay đổi theo một con số cố định, tạo ra lề (margin) 2 bên.
 * **`.container-fluid`**: Chiếm 100% chiều rộng của viewport (màn hình) ở mọi kích thước thiết bị. Không bao giờ có khoảng trống lề thừa 2 bên (ngoại trừ padding mặc định của lưới).
 * **`.container-md`**: Là sự lai tạp. Nó sẽ hoạt động giống 100% chiều rộng (`container-fluid`) trên các màn hình nhỏ (xs, sm). Nhưng bắt đầu từ điểm dừng `md` (≥ 768px) trở lên, nó sẽ hoạt động giống một `.container` bình thường có max-width cố định.
+### PHẦN C — PHÂN TÍCH (20 điểm)
+
+#### Câu C1 (10đ) — Tùy biến Bootstrap
+
+**1. Quy trình đổi màu `$primary` từ xanh sang `#E63946`:**
+* **Công cụ cần thiết:** Một SASS Compiler (như Extension *Live Sass Compiler* trên VSCode hoặc gói lệnh `sass` qua Node.js).
+* **Quy trình thực hiện:**
+    1. Tải source code SASS của Bootstrap về máy (qua npm hoặc tải file zip).
+    2. Tạo một file SASS của riêng bạn, ví dụ: `custom.scss`.
+    3. Trong file `custom.scss`, khai báo đè biến `$primary` **TRƯỚC KHI** import Bootstrap:
+       ```scss
+       // Đặt lại màu primary theo ý muốn
+       $primary: #E63946;
+       
+       // Sau đó mới import toàn bộ (hoặc các phần cần thiết) của Bootstrap
+       @import "node_modules/bootstrap/scss/bootstrap";
+       ```
+    4. Chạy compiler để biên dịch file `custom.scss` này ra thành `custom.css`.
+    5. Link file `custom.css` vừa tạo vào HTML thay cho link CDN mặc định của Bootstrap.
+
+**2. Tại sao KHÔNG nên override trực tiếp `.btn-primary { background: red; }`?**
+* **Tính nhất quán (Consistency):** Trong Bootstrap, biến `$primary` không chỉ dùng cho mỗi nút bấm. Nó còn được dùng để tính toán màu cho hàng loạt component khác như `badge`, `alert`, `text-primary`, `bg-primary`, viền input khi focus, v.v. Nếu chỉ override class `.btn-primary` bằng CSS thường, bạn sẽ phải lóc cóc đi tìm và viết CSS đè cho tất cả các component khác nếu muốn đổi theme, rất dễ bị sót.
+* **Các trạng thái tương tác:** Khi dùng SASS variable, Bootstrap tự động dùng các hàm toán học (như `darken`, `lighten`) để tạo ra màu khi hover, active, hoặc viền shadow khi focus. Nếu ghi đè CSS cứng bằng `background: red`, bạn sẽ mất hết các hiệu ứng hover này, hoặc lại phải hì hục viết thêm đống CSS đè cho `:hover`, `:active`.
+
+---
+
+#### Câu C2 (10đ) — So sánh Bootstrap vs CSS Thuần
+
+**So sánh chi tiết (Navbar Responsive & Product Card):**
+
+| Tiêu chí | CSS Thuần (Vanilla CSS) | Bootstrap 5 |
+| :--- | :--- | :--- |
+| **Số dòng CSS cần viết** | Rất nhiều (có thể lên tới hàng trăm dòng, phải tự viết Flexbox, Media Queries, Animation và JS cho nút Hamburger). | **0 dòng CSS**. Hoàn toàn dùng các class có sẵn (`navbar`, `navbar-expand-lg`, `card`, `col-md-4`...) thẳng trong HTML. |
+| **Thời gian phát triển** | Chậm (mất vài giờ để code, test responsive trên nhiều màn hình và fix lỗi). | Cực kỳ nhanh (chỉ 5-10 phút lắp ghép các class là có ngay giao diện chuẩn). |
+| **Khả năng tùy biến** | **Cao / Vô hạn**. Làm chủ 100% giao diện, muốn pixel nào ở đâu là được ở đó. | **Trung bình - Khó**. Nếu dùng mặc định sẽ bị hội chứng "trang nào trông cũng giống nhau". Muốn custom sâu phải rành SASS. |
+
+**Kết luận sử dụng:**
+
+* **NÊN dùng Bootstrap khi:** * Làm các dự án cần tốc độ nhanh (MVP, Prototype, đồ án môn học cần chạy cho kịp deadline).
+    * Thiết kế các hệ thống nội bộ (Admin Dashboard, CMS) không yêu cầu UI quá phá cách.
+    * Đội ngũ phát triển thiên về Backend (ít kinh nghiệm CSS).
+* **KHÔNG NÊN dùng Bootstrap khi:**
+    * Dự án có bản thiết kế UI/UX độc quyền, phức tạp, khác biệt hoàn toàn với chuẩn lưới của Bootstrap.
+    * Các dự án yêu cầu tối ưu hóa tốc độ tải trang (Performance) ở mức tối đa (không muốn bắt user tải nguyên cục CSS hàng trăm KB của Bootstrap mà chỉ dùng vài ba class).
