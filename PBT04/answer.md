@@ -68,3 +68,64 @@
 │ [   Item 7   ] gap [   Trống    ] gap [   Trống    ] │
 └────────────────────────────────────────────┘
 ```
+## PHẦN C — SUY LUẬN (20 điểm)
+
+### Câu C1 (10đ) — Flexbox vs Grid: Khi nào dùng gì?
+
+1. **Navigation bar ngang:** Dùng **Flexbox**. 
+   * *Giải thích:* Đây là layout 1 chiều (1D) nằm ngang. Flexbox sinh ra để xử lý việc căn chỉnh, giãn cách các phần tử trên một hàng (hoặc cột) cực kỳ dễ dàng với `justify-content` và `align-items`.
+2. **Lưới ảnh Instagram:** Dùng **Grid**.
+   * *Giải thích:* Đây là layout 2 chiều (2D - cả hàng và cột). Grid giúp kiểm soát chính xác cấu trúc lưới, chia cột đều nhau (`repeat`) và tạo khoảng cách (`gap`) một cách đồng nhất, bất kể số lượng ảnh.
+3. **Layout blog (main content + sidebar):** Dùng **Grid**.
+   * *Giải thích:* Chia layout tổng thể của trang web là thế mạnh tuyệt đối của Grid. Dễ dàng chia tỷ lệ (ví dụ: `grid-template-columns: 1fr 300px;`) để content linh hoạt và sidebar giữ kích thước chuẩn.
+4. **Footer với 4 cột thông tin:** Dùng **Grid** (hoặc kết hợp).
+   * *Giải thích:* Dùng Grid để chia nhanh container thành 4 phần bằng nhau (`grid-template-columns: repeat(4, 1fr)`). Bên trong mỗi cột có thể dùng Flexbox (column) để xếp các link dọc xuống.
+5. **Card sản phẩm (ảnh trên, text giữa, nút dưới):** Dùng **Flexbox**.
+   * *Giải thích:* Cấu trúc thẻ là 1 trục dọc (`flex-direction: column`). Sử dụng Flexbox kết hợp trick `margin-top: auto` cho nút "Mua" là cách tối ưu nhất để ép nút luôn dính sát đáy card, bất chấp độ dài của text bên trên.
+
+---
+### Câu C2 (10đ) — Debug Flexbox
+
+**Lỗi 1: Cards không đều chiều cao — nút "Mua" bị nhảy**
+* **Nguyên nhân:** Flexbox container (`.card-container`) mặc định có `align-items: stretch` nên các `.card` sẽ cao bằng nhau. Tuy nhiên, nội dung *bên trong* `.card` (ảnh, h3, btn) không phải là flex-item nên không tự động giãn ra để lấp đầy khoảng trống, khiến nút "Mua" bị trôi nổi tự do theo chiều cao của text.
+* **Code sửa:** Biến chính `.card` thành một flex-container theo trục dọc, sau đó đẩy nút xuống đáy.
+```css
+.card {
+    width: 30%; margin: 1.5%;
+    display: flex;
+    flex-direction: column; 
+}
+.card img { width: 100%; }
+.card h3 { font-size: 18px; }
+.card .btn { 
+    padding: 10px; 
+    margin-top: auto; 
+}
+```
+
+**Lỗi 2: Item dính góc trái trên trong Hero 100vh**
+* **Nguyên nhân:** Có `display: flex` và chiều cao `100vh` rồi nhưng thiếu các thuộc tính căn chỉnh dọc và ngang của Flexbox trên container. `text-align: center` chỉ căn giữa chữ bên trong `.hero-content`, không căn giữa chính cái block `.hero-content` đó so với `.hero`.
+* **Code sửa:** Thêm `justify-content` và `align-items` vào container.
+```css
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+}
+.hero-content {
+    text-align: center;
+}
+```
+
+**Lỗi 3: Sidebar bị co lại khi content quá dài**
+* **Nguyên nhân:** Flexbox mặc định có thuộc tính `flex-shrink: 1` cho tất cả các flex-item. Nghĩa là khi container bị thiếu không gian (do content bên cạnh quá dài), các item sẽ bị ép co nhỏ lại so với `width` ban đầu.
+* **Code sửa:** Tắt tính năng co giãn của sidebar bằng `flex-shrink: 0`.
+```css
+.layout { display: flex; }
+.sidebar { 
+    width: 250px; 
+    flex-shrink: 0; 
+}
+.content { flex: 1; }
+```
