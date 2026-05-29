@@ -75,16 +75,14 @@ body { background-color: #f0f2f5; padding: 20px; }
     width: 40px;
     height: 40px;
     margin: 0 auto;
-    border: 4px solid #ddd; /* Viền mờ xung quanh */
-    border-top: 4px solid #2ecc71; /* Viền màu xanh tạo hiệu ứng xoay */
-    border-radius: 50%; /* Bo tròn thành hình tròn hoàn hảo */
-    animation: spin 1s linear infinite; /* Xoay đều vô tận trong 1 giây/vòng */
+    border: 4px solid #ddd; 
+    border-top: 4px solid #2ecc71; 
+    border-radius: 50%; 
+    animation: spin 1s linear infinite; 
 }
 
 
-/* ==================================================
-   HIỆU ỨNG 5: Fade-in khi tải trang/scroll (Keyframes)
-   ================================================== */
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

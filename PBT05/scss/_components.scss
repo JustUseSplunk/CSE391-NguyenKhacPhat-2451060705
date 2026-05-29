@@ -1,0 +1,39 @@
+
+.card {
+    background: $white;
+    padding: $spacing-md;
+    border-radius: $spacing-sm;
+    text-align: center;
+    @include card-shadow;
+
+    img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        color: $primary-color;
+        margin-bottom: $spacing-sm;
+    }
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+}
+
+
+.btn {
+    @include flex-center;
+    background-color: $primary-color;
+    color: $white;
+    padding: $spacing-sm $spacing-md;
+    border: none;
+    border-radius: $spacing-sm;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
