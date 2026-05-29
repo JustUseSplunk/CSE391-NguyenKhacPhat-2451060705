@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2 - Bootstrap Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        @media (min-width: 992px) {
+            .sidebar {
+                width: 240px;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 100;
+                padding-top: 56px;
+            }
+            .main-content {
+                margin-left: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            
+            <nav class="col-lg-2 d-md-block bg-dark sidebar collapse shadow-sm">
+                <div class="position-sticky pt-3">
+                    <h5 class="text-white px-3 mb-4"><i class="bi bi-speedometer2 me-2"></i>ADMIN PANEL</h5>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action bg-dark text-white active border-0 py-3">
+                            <i class="bi bi-house-door me-2"></i> Tổng quan
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action bg-dark text-white border-0 py-3">
+                            <i class="bi bi-cart me-2"></i> Đơn hàng
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action bg-dark text-white border-0 py-3">
+                            <i class="bi bi-people me-2"></i> Khách hàng
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action bg-dark text-white border-0 py-3">
+                            <i class="bi bi-box me-2"></i> Sản phẩm
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action bg-dark text-white border-0 py-3">
+                            <i class="bi bi-gear me-2"></i> Cài đặt
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="col-md-12 ms-sm-auto col-lg-10 px-md-4 main-content">
+                
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        </ol>
+                    </nav>
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle shadow-sm" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle me-1"></i> Admin Vinh Hoàng
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Hồ sơ</a></li>
+                            <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+                    <strong>Thành công!</strong> Hệ thống đã cập nhật dữ liệu mới nhất.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="card bg-primary text-white h-100 shadow-sm border-0">
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-uppercase mb-1">Doanh thu</h6>
+                                    <h3 class="mb-0">$12,850</h3>
+                                </div>
+                                <i class="bi bi-currency-dollar fs-1 opacity-50"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="card bg-success text-white h-100 shadow-sm border-0">
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-uppercase mb-1">Đơn hàng</h6>
+                                    <h3 class="mb-0">+245</h3>
+                                </div>
+                                <i class="bi bi-cart-check fs-1 opacity-50"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="card bg-warning text-dark h-100 shadow-sm border-0">
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-uppercase mb-1">Khách mới</h6>
+                                    <h3 class="mb-0">1,024</h3>
+                                </div>
+                                <i class="bi bi-people fs-1 opacity-50"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="card bg-danger text-white h-100 shadow-sm border-0">
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-uppercase mb-1">Cảnh báo</h6>
+                                    <h3 class="mb-0">05</h3>
+                                </div>
+                                <i class="bi bi-exclamation-triangle fs-1 opacity-50"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="mb-0">Đơn hàng gần đây</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Khách hàng</th>
+                                        <th>Ngày đặt</th>
+                                        <th>Trạng thái</th>
+                                        <th>Tổng tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#1001</td>
+                                        <td>Nguyễn Văn A</td>
+                                        <td>20/05/2026</td>
+                                        <td><span class="badge bg-success">Hoàn thành</span></td>
+                                        <td>$250.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1002</td>
+                                        <td>Trần Thị B</td>
+                                        <td>21/05/2026</td>
+                                        <td><span class="badge bg-warning text-dark">Chờ xử lý</span></td>
+                                        <td>$120.50</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1003</td>
+                                        <td>Lê Văn C</td>
+                                        <td>22/05/2026</td>
+                                        <td><span class="badge bg-info">Đang giao</span></td>
+                                        <td>$450.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="input-group shadow-sm">
+                            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                            <input type="text" class="form-control border-start-0" placeholder="Tìm kiếm đơn hàng...">
+                            <button class="btn btn-primary" type="button">Lọc dữ liệu</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion shadow-sm mb-5" id="faqDashboard">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Làm thế nào để xuất báo cáo?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqDashboard">
+                            <div class="accordion-body">
+                                Bạn có thể xuất báo cáo bằng cách nhấn vào nút "Lọc dữ liệu" và chọn định dạng file (Excel/PDF) mong muốn.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Thay đổi phân quyền người dùng?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqDashboard">
+                            <div class="accordion-body">
+                                Truy cập mục <strong>Cài đặt > Phân quyền</strong> để thay đổi vai trò của các thành viên trong hệ thống.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
