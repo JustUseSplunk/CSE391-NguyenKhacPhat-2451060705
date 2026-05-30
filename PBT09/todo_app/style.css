@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #f5f5f5;
+    color: #4d4d4d;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.todoapp {
+    background: #fff;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 80px;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+    padding: 20px;
+}
+
+.new-todo {
+    width: 100%;
+    font-size: 24px;
+    padding: 16px 16px 16px 60px;
+    border: none;
+    background: rgba(0, 0, 0, 0.003);
+    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+    outline: none;
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    border-bottom: 1px solid #ededed;
+    position: relative;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #d9d9d9;
+}
+
+.todo-item .toggle {
+    width: 30px;
+    height: 30px;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.todo-item .todo-text {
+    flex: 1;
+    padding: 15px 15px 15px 0;
+    transition: color 0.4s;
+    word-break: break-all;
+    cursor: text;
+}
+
+.todo-item .delete-btn {
+    display: none;
+    color: #cc9a9a;
+    font-size: 22px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding-right: 20px;
+}
+
+.todo-item:hover .delete-btn {
+    display: block;
+}
+
+.todo-item .delete-btn:hover {
+    color: #af5b5e;
+}
+
+.todo-item.editing .todo-text,
+.todo-item.editing .toggle {
+    display: none; 
+}
+
+.todo-item .edit-input {
+    display: none;
+    flex: 1;
+    font-size: 24px;
+    padding: 12px 16px;
+    margin: 2px 0 2px 45px;
+    border: 1px solid #999;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.todo-item.editing .edit-input {
+    display: block;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #777;
+    border-top: 1px solid #e6e6e6;
+}
+
+.filters {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+.filters a {
+    color: inherit;
+    text-decoration: none;
+    padding: 3px 7px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.filters a:hover {
+    border-color: rgba(175, 47, 47, 0.1);
+}
+
+.filters a.selected {
+    border-color: rgba(175, 47, 47, 0.2);
+}
+
+.clear-completed {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.clear-completed:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none !important;
+}
