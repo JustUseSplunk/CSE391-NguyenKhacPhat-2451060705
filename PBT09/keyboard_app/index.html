@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Shortcuts & A11y</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Ứng dụng Phím tắt</h1>
+        <button id="openCmdBtn" class="btn" aria-label="Mở bảng lệnh">
+            Mở Command Palette (Ctrl + K)
+        </button>
+    </header>
+
+    <main>
+        <section class="gallery-section" aria-label="Khu vực thư viện ảnh">
+            <h2>Thư viện ảnh</h2>
+            <p>Click vào 1 ảnh bất kỳ để mở. Sau đó dùng bàn phím:</p>
+            <ul>
+                <li><kbd>⬅️</kbd> <kbd>➡️</kbd> : Chuyển ảnh</li>
+                <li><kbd>1</kbd> - <kbd>9</kbd> : Nhảy đến ảnh 1-9</li>
+                <li><kbd>Space</kbd> : Tự động chuyển ảnh (Slideshow)</li>
+                <li><kbd>Esc</kbd> : Đóng ảnh</li>
+            </ul>
+            <div class="gallery-grid" id="galleryGrid">
+                </div>
+        </section>
+    </main>
+
+    <div id="galleryModal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Trình xem ảnh phóng to">
+        <div class="modal-content gallery-content">
+            <button id="closeGalleryBtn" class="close-btn" aria-label="Đóng trình xem ảnh">&times;</button>
+            <div class="image-wrapper">
+                <img id="modalImage" src="" alt="Ảnh đang xem">
+                <div id="slideshowIndicator" class="indicator hidden">▶ Đang phát tự động</div>
+            </div>
+            <div id="imageCounter" class="counter">1 / 9</div>
+        </div>
+    </div>
+
+    <div id="cmdPalette" class="modal hidden" role="dialog" aria-modal="true" aria-label="Bảng lệnh Command Palette">
+        <div class="modal-content cmd-content">
+            <input type="text" id="cmdInput" placeholder="Nhập lệnh (vd: tối, sáng, ảnh)..." aria-label="Ô nhập lệnh tìm kiếm" autocomplete="off">
+            <ul id="cmdList" role="listbox" aria-label="Danh sách các lệnh">
+                </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

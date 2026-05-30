@@ -1,0 +1,155 @@
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --focus-ring: 0 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme {
+    --bg-color: #1e1e1e;
+    --text-color: #e0e0e0;
+}
+
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    box-shadow: var(--focus-ring);
+    border-radius: 4px;
+}
+
+kbd {
+    background: #e1e1e1;
+    color: #333;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border-bottom: 2px solid #ccc;
+    font-family: monospace;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-grid img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: -10px; right: -10px;
+    background: #ff4757; color: white;
+    border: none; width: 30px; height: 30px;
+    border-radius: 50%; font-size: 20px; cursor: pointer;
+}
+
+.gallery-content {
+    align-self: center;
+    position: relative;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#modalImage {
+    max-width: 80vw;
+    max-height: 70vh;
+    border-radius: 4px;
+}
+
+.indicator {
+    position: absolute;
+    bottom: 15px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6); color: white;
+    padding: 5px 15px; border-radius: 20px;
+}
+
+.counter {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.cmd-content {
+    margin-top: 10vh;
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+    color: #333;
+}
+
+#cmdInput {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+
+#cmdList {
+    list-style: none;
+    padding: 0; margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#cmdList li {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+}
+
+#cmdList li.active {
+    background: #f0f7ff;
+    border-left-color: #007bff;
+    color: #007bff;
+    font-weight: bold;
+}
